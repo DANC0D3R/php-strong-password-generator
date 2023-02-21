@@ -9,7 +9,7 @@ $numbers=[0,1,2,3,4,5,6,7,8,9];
 $repetition=$_GET['repetition'] ?? true;
 $getSpecials= $_GET['chars'] ?? array();
 
-if(count($getSpecials)==0 || count($getSpecials)==3){
+if(count($getSpecials) == 0 || count($getSpecials)==3){
     $huge_array = array_merge($specials, $letters, $numbers);
 } elseif(count($getSpecials) == 1 && in_array("special", $getSpecials)){
     $huge_array = $specials;

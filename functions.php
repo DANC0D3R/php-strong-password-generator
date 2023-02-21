@@ -2,7 +2,7 @@
 // Funzione che genera la password
 function createPsw($charsnum, $huge_array){
     $repetition = $_GET['repetition'];
-    if($repetition =='false'){
+    if($repetition == 'false'){
         $my_temp_array = [];
         while(count($my_temp_array) <= $charsnum){
             $my_rdm_var=array_rand(array_flip($huge_array), 1);
