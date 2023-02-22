@@ -1,15 +1,15 @@
 <?php 
 require_once __DIR__ . '/functions.php';
 $charsnum = intval($_GET['charsnumber'] ?? '');
-$password='';
-$output='';
-$specials=['!','?','&','%','$','<','>','^','+','-','*','/','(',')','[',']','{','}','@','#','_','=',];
-$letters=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-$numbers=[0,1,2,3,4,5,6,7,8,9];
-$repetition=$_GET['repetition'] ?? true;
-$getSpecials= $_GET['chars'] ?? array();
+$password = '';
+$output = '';
+$specials = ['!','?','&','%','$','<','>','^','+','-','*','/','(',')','[',']','{','}','@','#','_','=',];
+$letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+$numbers = [0,1,2,3,4,5,6,7,8,9];
+$repetition = $_GET['repetition'] ?? true;
+$getSpecials = $_GET['chars'] ?? array();
 
-if(count($getSpecials) == 0 || count($getSpecials)==3){
+if(count($getSpecials) == 0 || count($getSpecials) == 3){
     $huge_array = array_merge($specials, $letters, $numbers);
 } elseif(count($getSpecials) == 1 && in_array("special", $getSpecials)){
     $huge_array = $specials;
@@ -29,10 +29,10 @@ if(count($getSpecials) == 0 || count($getSpecials)==3){
 ;}
 
 if($charsnum < 8 || $charsnum > 50){
-    $output='Attenzione! La password conterrà un numero di caratteri compreso fra 8 e 50';
+    $output = 'Attenzione! La password conterrà un numero di caratteri compreso fra 8 e 50';
 } else{
-    $password=createPsw($charsnum, $huge_array);
-    $output='';
+    $password = createPsw($charsnum, $huge_array);
+    $output = '';
     session_start();
     $_SESSION['password'] = $password;
     header('Location: pw-generated.php');
@@ -106,7 +106,7 @@ if($charsnum < 8 || $charsnum > 50){
                     </div>
                 </div>
                 <!-- Bottone Submit -->
-                <button type="submit" class="btn btn-primary my-2">Submit</button>
+                <button type="submit" class="btn btn-primary my-2">Genera</button>
                 <!-- Bottone Reset -->
                 <button type="reset" class="btn btn-info my-2">Reset</button>
             </form>
